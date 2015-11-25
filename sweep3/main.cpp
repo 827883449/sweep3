@@ -6,10 +6,25 @@
 //  Copyright © 2015年 刘骁汉. All rights reserved.
 //
 
-#include <iostream>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+Servo myservo;
+
+int pos = 0;
+
+void setup() {
+    myservo.attach(9);
 }
+
+void loop() {
+    for (pos = 0; pos <= 180; pos += 1)
+    {
+        myservo.write(pos);
+        delay(15);
+    }
+    for (pos = 180; pos >= 0; pos -= 1)
+    {
+        myservo.write(pos);
+        delay(15);
+    }
+}
+
